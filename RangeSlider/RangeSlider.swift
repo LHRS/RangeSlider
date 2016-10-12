@@ -61,7 +61,7 @@ class RangeSliderThumbLayer: CALayer {
             return
         }
         
-        let thumbFrame = bounds.insetBy(dx: 1.0, dy: 1.0)
+        let thumbFrame = bounds.insetBy(dx: 2.0, dy: 2.0)
         let cornerRadius = thumbFrame.height * slider.curvaceousness / 2.0
         let thumbPath = UIBezierPath(roundedRect: thumbFrame, cornerRadius: cornerRadius)
         
@@ -86,15 +86,6 @@ class RangeSliderThumbLayer: CALayer {
 
 @IBDesignable
 class RangeSlider: UIControl {
-    @IBInspectable var minimumValue: Double = 0.0 {
-        willSet(newValue) {
-            assert(newValue < maximumValue, "RangeSlider: minimumValue should be lower than maximumValue")
-        }
-        didSet {
-            updateLayerFrames()
-        }
-    }
-    
     @IBInspectable var maximumValue: Double = 1.0 {
         willSet(newValue) {
             assert(newValue > minimumValue, "RangeSlider: maximumValue should be greater than minimumValue")
@@ -103,16 +94,16 @@ class RangeSlider: UIControl {
             updateLayerFrames()
         }
     }
-    
-    @IBInspectable var lowerValue: Double = 0.2 {
-        didSet {
-            if lowerValue < minimumValue {
-                lowerValue = minimumValue
-            }
-            updateLayerFrames()
-        }
+  
+    @IBInspectable var minimumValue: Double = 0.0 {
+      willSet(newValue) {
+        assert(newValue < maximumValue, "RangeSlider: minimumValue should be lower than maximumValue")
+      }
+      didSet {
+        updateLayerFrames()
+      }
     }
-    
+  
     @IBInspectable var upperValue: Double = 0.8 {
         didSet {
             if upperValue > maximumValue {
@@ -121,7 +112,16 @@ class RangeSlider: UIControl {
             updateLayerFrames()
         }
     }
-    
+  
+    @IBInspectable var lowerValue: Double = 0.2 {
+      didSet {
+        if lowerValue < minimumValue {
+          lowerValue = minimumValue
+        }
+        updateLayerFrames()
+      }
+    }
+  
     var gapBetweenThumbs: Double {
         return 0.5 * Double(thumbWidth) * (maximumValue - minimumValue) / Double(bounds.width)
     }
@@ -230,11 +230,11 @@ class RangeSlider: UIControl {
         trackLayer.setNeedsDisplay()
         
         let lowerThumbCenter = CGFloat(positionForValue(lowerValue))
-        lowerThumbLayer.frame = CGRect(x: lowerThumbCenter - thumbWidth/2.0, y: 0.0, width: thumbWidth, height: thumbWidth)
+        lowerThumbLayer.frame = CGRect(x: lowerThumbCenter - thumbWidth/2.0, y: 0.0, width: thumbWidth*0.9, height: thumbWidth*0.9)
         lowerThumbLayer.setNeedsDisplay()
         
         let upperThumbCenter = CGFloat(positionForValue(upperValue))
-        upperThumbLayer.frame = CGRect(x: upperThumbCenter - thumbWidth/2.0, y: 0.0, width: thumbWidth, height: thumbWidth)
+        upperThumbLayer.frame = CGRect(x: upperThumbCenter - thumbWidth/2.0, y: 0.0, width: thumbWidth*0.9, height: thumbWidth*0.9)
         upperThumbLayer.setNeedsDisplay()
         
         CATransaction.commit()
