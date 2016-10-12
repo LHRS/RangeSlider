@@ -91,8 +91,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "RangeSlider", "RangeSlider/*.{swift}"
-  s.exclude_files = "RangeSlider/AppDelegate.{swift}"
+  s.source_files  = "RangeSlider/RangeSlider.{swift}"
+  #s.exclude_files = 
 
   # s.public_header_files = "Classes/**/*.h"
 
