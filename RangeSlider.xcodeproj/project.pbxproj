@@ -12,7 +12,7 @@
 		5C39171A1BA4A83600515C54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C3917181BA4A83600515C54 /* Main.storyboard */; };
 		5C39171C1BA4A83600515C54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C39171B1BA4A83600515C54 /* Assets.xcassets */; };
 		5C39171F1BA4A83600515C54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C39171D1BA4A83600515C54 /* LaunchScreen.storyboard */; };
-		5C3917271BA4A89300515C54 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3917261BA4A89300515C54 /* RangeSlider.swift */; settings = {ASSET_TAGS = (); }; };
+		5C3917271BA4A89300515C54 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3917261BA4A89300515C54 /* RangeSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +98,7 @@
 				TargetAttributes = {
 					5C3917101BA4A83600515C54 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -256,6 +257,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wa.RangeSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -267,6 +269,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wa.RangeSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
