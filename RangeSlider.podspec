@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "RangeSlider", "RangeSlider/*.{swift}"
-  s.exclude_files = "Classes/Exclude"
+  s.exclude_files = "RangeSlider/AppDelegate.{swift}"
 
   # s.public_header_files = "Classes/**/*.h"
 
